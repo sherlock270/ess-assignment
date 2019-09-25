@@ -15,6 +15,7 @@ const errorHandler = err => console.error(err);
 /***************************************
  *          Course routes
  ***************************************/
+//return course indicated by id, or all courses if no id
 server.get("/courses/", (req, res) => {
   helpers
     .getCourses(req.body.id)
@@ -24,6 +25,7 @@ server.get("/courses/", (req, res) => {
     .catch(errorHandler);
 });
 
+//create new course
 server.post("/courses", (req, res) => {
   const course = req.body;
   helpers
@@ -39,6 +41,7 @@ server.post("/courses", (req, res) => {
 });
 
 server.patch("/courses", (req, res) => {
+  // Front end sends an object containing requested updates
   const updates = req.body;
   helpers
     .updateCourse(updates)
@@ -53,8 +56,9 @@ server.patch("/courses", (req, res) => {
 });
 
 server.delete("/courses", (req, res) => {
+  // ID of course to delete is sent via params from the frontend
   helpers
-    .deleteCourse(req.body.id)
+    .deleteCourse(req.query.id)
     .then(response => {
       if (response.error) {
         res.status(400).json({ error: response.error });
@@ -68,6 +72,7 @@ server.delete("/courses", (req, res) => {
 /***************************************
  *          Test routes
  ***************************************/
+//return test indicated by id, or all tests if no id
 server.get("/tests/", (req, res) => {
   helpers
     .getTests(req.body.id)
@@ -77,6 +82,7 @@ server.get("/tests/", (req, res) => {
     .catch(errorHandler);
 });
 
+//create new test. name and course_id required
 server.post("/tests", (req, res) => {
   const test = req.body;
   helpers
@@ -91,6 +97,7 @@ server.post("/tests", (req, res) => {
     .catch(errorHandler);
 });
 
+// Front end sends an object containing requested updates
 server.patch("/tests", (req, res) => {
   const updates = req.body;
   helpers
@@ -105,9 +112,10 @@ server.patch("/tests", (req, res) => {
     .catch(errorHandler);
 });
 
+// ID of course to delete is sent via params from the frontend
 server.delete("/tests", (req, res) => {
   helpers
-    .deleteTest(req.body.id)
+    .deleteTest(req.query.id)
     .then(response => {
       if (response.error) {
         res.status(400).json({ error: response.error });

@@ -9,7 +9,6 @@ export default function Sidebar(props) {
         Home
       </Link>
       <Link to="/add-course">Add New Course</Link>
-      <Link to="/add-test">Add New Test</Link>
     </div>
   );
 }

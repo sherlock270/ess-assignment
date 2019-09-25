@@ -2,12 +2,12 @@ import React, { useState } from "react";
 import { Redirect } from "react-router-dom";
 import axios from "axios";
 
-export default function AddTest(props) {
+export default function ModTest(props) {
   const [name, setName] = useState("");
   const [completed, setCompleted] = useState(false);
 
   const submit = test => {
-    axios.post("http://localhost:8000/tests", test).then(res => {
+    axios.patch("http://localhost:8000/tests", test).then(res => {
       setCompleted(true);
     });
   };
@@ -17,7 +17,12 @@ export default function AddTest(props) {
       {completed ? (
         <Redirect to="/" />
       ) : (
-        <h1 onClick={() => setCompleted(true)}>Gonna add a test here</h1>
+        <div>
+          <h1 onClick={() => setCompleted(true)}>
+            Gonna mod test # {props.match.params.id} here
+          </h1>
+          <h2>Also gonna be a delete button</h2>
+        </div>
       )}
     </div>
   );
