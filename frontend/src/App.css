@@ -3,6 +3,31 @@ a {
   text-decoration: none;
 }
 
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  border: 1px solid black;
+  border-radius: 5px;
+  padding: 20px;
+}
+
+form button {
+  align-self: center;
+}
+
+label {
+  margin: 10px auto;
+  width: 100%;
+  text-align: left;
+}
+
+input {
+  margin-left: 5px;
+  position: relative;
+  float: right;
+}
+
 a:hover {
   text-decoration: underline;
   cursor: pointer;
@@ -11,6 +36,22 @@ a:hover {
 .App {
   text-align: center;
   display: flex;
+}
+
+.info {
+  border: 1px solid black;
+  border-radius: 5px;
+  margin: 10px;
+}
+
+.info h4 {
+  text-decoration: underline;
+}
+
+.editing {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .container {

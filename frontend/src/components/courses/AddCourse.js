@@ -30,7 +30,7 @@ export default function AddCourse(props) {
       ) : (
         <form onSubmit={submit}>
           <label>
-            name
+            Name:
             <input
               type="text"
               name="name"
@@ -39,7 +39,7 @@ export default function AddCourse(props) {
             />
           </label>
           <label>
-            domain
+            Domain:
             <input
               type="text"
               name="domain"
@@ -48,7 +48,7 @@ export default function AddCourse(props) {
             />
           </label>
           <label>
-            description
+            Description:
             <input
               type="text"
               name="description"
