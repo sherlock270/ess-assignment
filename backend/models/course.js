@@ -1,12 +1,22 @@
-'use strict';
+"use strict";
+const Sequelize = require("sequelize");
+
 module.exports = (sequelize, DataTypes) => {
-  const Course = sequelize.define('Course', {
-    name: DataTypes.STRING,
-    domain: DataTypes.STRING,
-    description: DataTypes.STRING
-  }, {});
+  const Course = sequelize.define(
+    "Course",
+    {
+      name: DataTypes.STRING,
+      domain: DataTypes.STRING,
+      description: DataTypes.STRING
+    },
+    {
+      timestamps: false
+    }
+  );
   Course.associate = function(models) {
-    // associations can be defined here
+    Course.hasMany(models.Test, {
+      foreignKey: "course_id"
+    });
   };
   return Course;
 };
