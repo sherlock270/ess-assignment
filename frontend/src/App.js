@@ -1,24 +1,22 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import { Route } from "react-router-dom";
+import "./App.css";
+import Sidebar from "./components/Sidebar";
+import Courses from "./components/Courses";
+import AddCourse from "./components/AddCourse";
+import ModCourse from "./components/ModCourse";
+import AddTest from "./components/AddTest";
+import ModTest from "./components/ModTest";
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Sidebar />
+      <Route exact path="/" component={Courses} />
+      <Route path="/add-course" component={AddCourse} />
+      <Route path="/mod-course" component={ModCourse} />
+      <Route path="/add-test" component={AddTest} />
+      <Route path="/mod-test" component={ModTest} />
     </div>
   );
 }
