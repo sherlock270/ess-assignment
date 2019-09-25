@@ -6,12 +6,12 @@ module.exports = {
       "Courses",
       [
         {
-          name: "Courses 101",
+          name: "Courses part 1",
           domain: "misc",
           description: "It's a course of course"
         },
         {
-          name: "Courses 102",
+          name: "Courses part 2",
           description: "It's a matter of course"
         }
       ],

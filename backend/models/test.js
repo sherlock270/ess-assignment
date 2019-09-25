@@ -14,7 +14,8 @@ module.exports = (sequelize, DataTypes) => {
   );
   Test.associate = function(models) {
     Test.belongsTo(models.Course, {
-      targetKey: "id"
+      targetKey: "id",
+      foreignKey: "course_id"
     });
   };
   return Test;

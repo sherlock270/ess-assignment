@@ -4,7 +4,7 @@ const helmet = require("helmet");
 const cors = require("cors");
 const helpers = require("./helpers");
 
-require("./database/connection");
+// require("./database/connection");
 
 server.use(express.json());
 server.use(cors());
@@ -112,7 +112,7 @@ server.patch("/tests", (req, res) => {
     .catch(errorHandler);
 });
 
-// ID of course to delete is sent via params from the frontend
+// ID of test to delete is sent via params from the frontend
 server.delete("/tests", (req, res) => {
   helpers
     .deleteTest(req.query.id)
